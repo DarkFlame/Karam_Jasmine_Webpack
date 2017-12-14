@@ -1,0 +1,30 @@
+{
+  "name": "karam",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start karma.config.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "jasmine-core": "^2.8.0",
+    "karma": "^1.7.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-coverage": "^1.1.1",
+    "karma-jasmine": "^1.1.1",
+    "karma-spec-reporter": "0.0.31",
+    "karma-webpack": "^2.0.6",
+    "ng-annotate-loader": "^0.6.1",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "angular": "^1.6.7",
+    "angular-mocks": "^1.6.7"
+  }
+}
