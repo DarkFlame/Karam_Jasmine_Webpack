@@ -13,7 +13,6 @@ export default angular.module('ngMaterialX.onEnter', []).directive('mdxOnEnter',
                     event.preventDefault();
                 }
             };
-            scope.name = 100;
             element.on('keyup', handler);
             scope.$on('$destroy', ()=>{
                 element.off('keyup', handler);

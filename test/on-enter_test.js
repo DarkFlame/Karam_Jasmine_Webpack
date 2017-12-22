@@ -1,15 +1,31 @@
-'use strict';
-
-describe('ngMaterialX.onEnter', function() {
+describe('ngMaterialX.onEnter',function () {
+    let $rootScope,$compile,element;
     beforeEach(module('ngMaterialX.onEnter'));
-
-    describe('ngMaterialX.onEnter', function() {
-        it('ngMaterialX.onEnter', function() {
-            inject(function($compile, $rootScope) {
-                let element = $compile('<span mdx-on-enter="console.log(1111);"></span>')($rootScope);
-                expect(element.text()).toEqual('');
-                expect($rootScope.name).toEqual(100);
-            });
+    beforeEach(function () {
+        inject(function (_$compile_,_$rootScope_) {
+            $rootScope = _$rootScope_;
+            $compile = _$compile_;
+            $rootScope.test = function (event) {
+                $rootScope.name = 'sunyue'
+            };
+            spyOn($rootScope,'test').and.callThrough();
         });
+        element = $compile('<span mdx-on-enter="test($event,1)"></span>')($rootScope);
     });
+
+    it('ngMaterialX.onEnter',function () {
+        expect(element.text()).toEqual('');
+    });
+
+    it('ngMaterialX.OnKeyup.Enter',function () {
+        browserTrigger(element,'keyup',{which: 13});
+        expect($rootScope.test).toHaveBeenCalled();
+        expect($rootScope.test).toHaveBeenCalledWith(jasmine.any(Event),1);
+        expect($rootScope.name).toEqual('sunyue');
+    });
+    it('ngMaterialX.OnKeyup.Not.Enter',function () {
+        browserTrigger(element,'keyup',{which: 14});
+        expect($rootScope.test).not.toHaveBeenCalled();
+    });
+
 });
