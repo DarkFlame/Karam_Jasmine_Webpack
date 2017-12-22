@@ -1,0 +1,21 @@
+<div class="mdx-calendar-container" layout="row">
+    <md-icon tabindex="-1" class="mdx-prev-month-button material-icons md-light" md-prevent-menu-close="md-prevent-menu-close" ng-click="ctrl.prev()">navigate_before</md-icon>
+    <md-icon tabindex="-1" class="mdx-next-month-button material-icons md-light" md-prevent-menu-close="md-prevent-menu-close" ng-click="ctrl.next()">navigate_next</md-icon>
+    <div class="mdx-calendar-pane" ng-repeat="view in ctrl.views">
+        <div class="mdx-calendar-month-label layout-padding" ng-bind="ctrl.dateLocale.monthHeaderFormatter(view)"></div>
+        <table class="md-calendar mdx-calendar">
+            <thead class="md-calendar-day-header mdx-calendar-day-header">
+                <tr>
+                    <th ng-repeat="day in ::ctrl.dateLocale.shortDays" ng-bind="day"></th>
+                </tr>
+            </thead>
+            <tbody class="md-calendar-month">
+                <tr ng-repeat="week in ctrl.weeks[$index]">
+                    <td tabindex="-1" class="md-calendar-date" md-prevent-menu-close="md-prevent-menu-close" ng-class="{'md-calendar-selected-date':ctrl.isSelectedDate(day, view),'mdx-calendar-date-not-in-month': !ctrl.isInMonth(day, view),'md-calendar-date-disabled':!ctrl.isEnabled(day)}" ng-click="ctrl.isEnabled(day) && ctrl.select(day)" ng-repeat="day in week">
+                        <span ng-class="{'mdx-calendar-date-today':ctrl.isToday(day),'mdx-calendar-ranged-date':ctrl.isRangedDate(day,view)}" class="md-calendar-date-selection-indicator" ng-bind="ctrl.dateLocale.dates[day.getDate()]"></span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

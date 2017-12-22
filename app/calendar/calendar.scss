@@ -1,0 +1,41 @@
+.mdx-calendar-container {
+    position: relative;
+    padding: 3px 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 2px;
+    .mdx-calendar-pane {
+        padding: 0 3px;
+    }
+    .mdx-prev-month-button {
+        position: absolute;
+        left: 0;
+        top: 3px;
+    }
+    .mdx-next-month-button {
+        position: absolute;
+        right: 0;
+        top: 3px;
+    }
+}
+
+.mdx-calendar-date-not-in-month {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.mdx-calendar-month-label {
+    text-align: center;
+    font-weight: 500;
+}
+
+.md-calendar-day-header.mdx-calendar-day-header {
+    background: transparent;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.mdx-calendar tr:last-child td {
+    border: 0 none;
+}
+
+// .mdx-calendar-ranged-date {
+//     font-weight: 700;
+// }
