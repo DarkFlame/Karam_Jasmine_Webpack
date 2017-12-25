@@ -3,7 +3,7 @@ import angular from 'angular';
 
 class CalendarController {
     /*@ngInject*/
-    constructor($filter, $mdDateLocale, mdxDateUtil, $timeout, $scope) {
+    constructor($filter, $mdDateLocale, mdxDateUtil, $scope) {
 
         this.dateLocale = $mdDateLocale;
         this.mdxDateUtil = mdxDateUtil;

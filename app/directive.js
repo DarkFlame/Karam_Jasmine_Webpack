@@ -6,7 +6,6 @@ class Controller{
         this.$parse = $parse;
         this.$attrs = $attrs;
         this.version = version;
-
     }
 }
 
@@ -15,6 +14,7 @@ class Directive {
     constructor() {
         this.restrict = 'AE';
         this.scope = {
+            // ngModel:'=',
         };
         this.controller = Controller;
         this.controllerAs = '$ctrl';

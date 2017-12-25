@@ -29,11 +29,14 @@ module.exports = function (config) {
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
-            './app/*.js' : ['webpack']
+            './app/**/*.js' : ['webpack']
         },
         webpack: require("./webpack.test.config.js"),
         webpackMiddleware: {
             noInfo: true,
+        },
+        proxies: {
+            '/': 'http://localhost:9876'
         },
         // test results reporter to use
         // possible values: 'dots', 'progress'

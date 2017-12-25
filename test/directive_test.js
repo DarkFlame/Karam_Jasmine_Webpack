@@ -9,7 +9,6 @@ describe('calculator',function () {
                 $provide.value('version','TEST_VER');
             });
             inject(function ($compile,$rootScope,version) {
-                // $rootScope.name = version;
                 let element = $compile('<span calculator-directive ng-model="name" ng-click="name = \'hello world\'"></span>')($rootScope);
                 // $rootScope.name = 'hello world'
                 // $rootScope.test = () => $rootScope.name = 'nice to meet'

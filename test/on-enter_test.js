@@ -10,10 +10,12 @@ describe('ngMaterialX.onEnter',function () {
             };
             spyOn($rootScope,'test').and.callThrough();
         });
-        element = $compile('<span mdx-on-enter="test($event,1)"></span>')($rootScope);
+        element = $compile('<span mdx-on-enter="test($event,1)">{{name}}</span>')($rootScope);
     });
 
     it('ngMaterialX.onEnter',function () {
+        $rootScope.$digest();
+        expect(element.hasClass('ng-binding')).toEqual(true);
         expect(element.text()).toEqual('');
     });
 
@@ -22,6 +24,8 @@ describe('ngMaterialX.onEnter',function () {
         expect($rootScope.test).toHaveBeenCalled();
         expect($rootScope.test).toHaveBeenCalledWith(jasmine.any(Event),1);
         expect($rootScope.name).toEqual('sunyue');
+        expect(element.text()).toEqual('sunyue');
+
     });
     it('ngMaterialX.OnKeyup.Not.Enter',function () {
         browserTrigger(element,'keyup',{which: 14});
