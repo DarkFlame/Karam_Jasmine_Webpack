@@ -36,7 +36,8 @@ class CalendarController {
                     $scope.$emit('mdx-calendar-date-change', new Date(this.date));
                 }
             });
-        } else if (this.mode === 'range') {
+        }
+        else if (this.mode === 'range') {
 
             this.date = this.date || {};
             if (this.date.startDate) {

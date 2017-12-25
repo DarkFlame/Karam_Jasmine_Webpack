@@ -16,7 +16,6 @@ describe('calculator', function () {
             $scope.sum();
             expect($scope.z).toBe(3);
             expect(controller.name).toBe('sunyue');
-            dump(controller)
             expect($scope.name1).toBe(undefined);
         });
     });
